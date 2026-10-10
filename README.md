@@ -23,7 +23,7 @@ Ciclo virtual de 24 horas: **2h44m15s reais**, se não houver pausas nem altera�
 2. O servidor Python publica JSON filtrado em `127.0.0.1:18751/v1/status`.
 3. O Tailscale Funnel disponibiliza o JSON via HTTPS na rota exclusiva `/fs25-live`, mantendo os serviços existentes de `/ `, `:8443` e `:10000` inalterados.
 4. O site consulta esse endpoint a cada 10 segundos e interpola a hora entre amostras conforme a configuração do FastNight.
-5. Se não houver mudança temporal recente, a interface indica incerteza e limita a extrapolação a 45 segundos.
+5. Se o XML demorar a atualizar, a interface continua a **previsão matemática** usando o FastNight, exibindo aviso de incerteza e o último horário efetivamente confirmado. Uma pausa do jogo pode tornar essa previsão incorreta até a próxima amostra.
 
 **Limite de precisão:** `dayTime` não contém a condição de pausa ou a velocidade instantânea. A atualização da API pode ser cacheada. Portanto a página indica estimativas entre leituras e **não afirma precisão absoluta**; sua confiabilidade depende da frequência real de atualização da GIANTS.
 
