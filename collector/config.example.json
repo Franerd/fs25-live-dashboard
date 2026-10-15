@@ -1,7 +1,7 @@
 {
   "sourceUrl": "http://IP_DO_SERVIDOR:PORTA/feed/dedicated-server-stats.xml",
   "apiCode": "MANTER_EM_ARQUIVO_PRIVADO",
-  "pollSeconds": 10,
+  "pollSeconds": 900,
   "bindHost": "127.0.0.1",
   "bindPort": 18751,
   "allowOrigin": "https://franerd.github.io",
