@@ -19,7 +19,7 @@ Ciclo virtual de 24 horas: **2h44m15s reais**, se não houver pausas nem altera�
 
 ## Atualização automática
 
-1. O serviço Python consulta o endpoint `dedicated-server-stats.xml` a cada **15 minutos (900 segundos)** (o feed da GIANTS pode atualizar em outro intervalo).
+1. O serviço Python consulta o endpoint `dedicated-server-stats.xml` a cada **30 segundos** (o feed da GIANTS pode atualizar em outro intervalo).
 2. O servidor Python publica JSON filtrado em `127.0.0.1:18751/v1/status`.
 3. O Tailscale Funnel disponibiliza o JSON via HTTPS na rota exclusiva `/fs25-live`, mantendo os serviços existentes de `/ `, `:8443` e `:10000` inalterados.
 4. O site consulta esse endpoint a cada 10 segundos e interpola a hora entre amostras conforme a configuração do FastNight.
@@ -37,7 +37,7 @@ Ciclo virtual de 24 horas: **2h44m15s reais**, se não houver pausas nem altera�
 
 Exemplo de configuração sem segredos em `collector/config.example.json`. O campo `apiCode` deve ser inserido **somente no arquivo privado**, jamais em arquivos públicos. A chave da Fragnet já compartilhada anteriormente deve ser **regenerada**.
 
-**Para ativar a cadência de 15 minutos na instalação existente**, configure `"pollSeconds": 900` no arquivo privado `source.json` com privilégios administrativos e reinicie apenas a tarefa `FS25LiveDashboard-Collector`. Alterar este repositório não atualiza automaticamente a configuração privada instalada no FraNerdServer.
+**Para ativar a cadência de 30 segundos na instalação existente**, configure `"pollSeconds": 30` no arquivo privado `source.json` com privilégios administrativos e reinicie apenas a tarefa `FS25LiveDashboard-Collector`. Alterar este repositório não atualiza automaticamente a configuração privada instalada no FraNerdServer.
 
 ### Testes locais
 
